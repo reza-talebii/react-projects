@@ -6,14 +6,7 @@ import Expenses from "./components/Expense/Expense";
 import AddExpense from "./components/AddExpense/Add/AddExpense";
 
 function App() {
-  const [expenseData, setExpenseData] = useState([
-    {
-      title: "test",
-      amount: 55,
-      date: new Date("2022-02-03"),
-      id: 1,
-    },
-  ]);
+  const [expenseData, setExpenseData] = useState([]);
 
   //add expense
   const AddExpenseHandler = (expense) => {
