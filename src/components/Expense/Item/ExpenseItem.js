@@ -15,7 +15,7 @@ function Expense({ expense }) {
       <ExpenseDate props={expense.date} />
       <div className="expense-item__description">
         <h2>{title}</h2>
-        <div className="expense-item__price">${expense.price}</div>
+        <div className="expense-item__price">${expense.amount}</div>
       </div>
       <button onClick={clickHandler}>change title</button>
     </Card>
