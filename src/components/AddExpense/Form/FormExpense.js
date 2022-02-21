@@ -23,7 +23,7 @@ const FormExpense = (props) => {
   const dateChangeHandler = (event) => {
     setUserInput((prevState) => ({
       ...prevState,
-      date: event.target.value,
+      date: new Date(event.target.value),
     }));
   };
 
