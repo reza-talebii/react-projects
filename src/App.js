@@ -1,7 +1,8 @@
 // import logo from './logo.svg';
 import { useState } from "react";
 import "./App.css";
-import Expense from "./components/Expense/Item/ExpenseItem";
+
+import Expenses from "./components/Expense/Expense";
 import AddExpense from "./components/AddExpense/Add/AddExpense";
 
 function App() {
@@ -9,17 +10,14 @@ function App() {
 
   //add expense
   const AddExpenseHandler = (expense) => {
-    const newExpense = [...expenseData, expense];
-    console.log(newExpense);
+    const newExpense = [expense, ...expenseData];
     setExpenseData(newExpense);
   };
 
   return (
     <section>
       <AddExpense onAddExpense={AddExpenseHandler} />
-      {expenseData.map((expense) => (
-        <Expense expense={expense} key={expense.id} />
-      ))}
+      <Expenses expenseData={expenseData} />
     </section>
   );
 }

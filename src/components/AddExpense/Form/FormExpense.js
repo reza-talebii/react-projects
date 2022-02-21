@@ -29,7 +29,7 @@ const FormExpense = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    console.log(userInput);
+    //save data
     props.onSaveExpenseData(userInput);
     //clear input value
     setUserInput({
