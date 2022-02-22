@@ -15,10 +15,10 @@ function App() {
   };
 
   return (
-    <section>
+    <>
       <AddExpense onAddExpense={AddExpenseHandler} />
       <Expenses expenseData={expenseData} />
-    </section>
+    </>
   );
 }
 
