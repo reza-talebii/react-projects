@@ -14,7 +14,8 @@ const Expenses = ({ expenseData }) => {
 
   //filter by year
   const filterYearData = expenseData.filter((expense) => {
-    if (expense.date.getFullYear() == filteredYear) return expense;
+    console.log(expense.date);
+    if (expense.date.getFullYear() === +filteredYear) return expense;
   });
 
   //check find expense
