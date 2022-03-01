@@ -7,20 +7,33 @@ import classes from "./AvailableMeals.module.css";
 const AvailableMeals = () => {
   const [dummyMeals, setDummyMeals] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [httpError, setHttpError] = useState();
 
   useEffect(() => {
     const fetchMealsData = async () => {
-      const respond = await (
-        await fetch("http://localhost:8000/DUMMY_MEALS")
-      ).json();
+      const respond = await fetch("http://localhost:8000/DUMMY_MEALS");
+      const data = await respond.json();
 
-      const getData = respond;
+      const getData = data;
       getData.map((data) => (data.price = +data.price));
       setDummyMeals(getData);
       setIsLoading(false);
     };
-    fetchMealsData();
+
+    fetchMealsData().catch((error) => {
+      console.log(error.massage);
+      setIsLoading(false);
+      setHttpError("server Error");
+    });
   }, []);
+
+  if (httpError) {
+    return (
+      <section className={classes.MealsError}>
+        <p>{httpError}</p>
+      </section>
+    );
+  }
 
   if (isLoading) {
     return (
