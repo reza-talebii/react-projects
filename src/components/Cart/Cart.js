@@ -9,6 +9,7 @@ import Checkout from "../Cart/Checkout";
 const Cart = (props) => {
   const [orderClicked, setOrderClicked] = useState(false);
   const cartCtx = useContext(CartContext);
+  const [sendBasket, setSendBasket] = useState(false);
 
   const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`;
   const hasItems = cartCtx.items.length > 0;
@@ -19,6 +20,18 @@ const Cart = (props) => {
 
   const cartItemAddHandler = (item) => {
     cartCtx.addItem(item);
+  };
+
+  const addBasketData = async (basket) => {
+    await fetch("http://localhost:8000/basket", {
+      method: "POST",
+      body: JSON.stringify({
+        user: basket,
+        items: cartCtx.items,
+      }),
+    });
+    setSendBasket(true);
+    // cartCtx.clearItem();
   };
 
   const orderClickHandler = () => setOrderClicked(true);
@@ -53,15 +66,35 @@ const Cart = (props) => {
     );
   };
 
+  const orderContent = () => {
+    return (
+      <>
+        {cartItems}
+        <div className={classes.total}>
+          <span>Total Amount</span>
+          <span>{totalAmount}</span>
+        </div>
+        {orderClicked && (
+          <Checkout onCancel={props.onClose} confirm={addBasketData} />
+        )}
+        {!orderClicked && actionsContent()}
+      </>
+    );
+  };
+
+  const successForm = <p>ok</p>;
+
   return (
     <Modal onClose={props.onClose}>
-      {cartItems}
-      <div className={classes.total}>
-        <span>Total Amount</span>
-        <span>{totalAmount}</span>
-      </div>
-      {orderClicked && <Checkout onCancel={props.onClose} />}
-      {!orderClicked && actionsContent()}
+      {sendBasket && successForm}
+      {!sendBasket && orderContent()}
+      {sendBasket && (
+        <div className={classes.actions}>
+          <button className={classes["button--alt"]} onClick={props.onClose}>
+            Close
+          </button>
+        </div>
+      )}
     </Modal>
   );
 };

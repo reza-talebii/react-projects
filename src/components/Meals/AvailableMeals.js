@@ -27,6 +27,12 @@ const AvailableMeals = () => {
     });
   }, []);
 
+  useEffect(() => {
+    window.addEventListener("online", () => {
+      console.log("online!");
+    });
+  }, []);
+
   if (httpError) {
     return (
       <section className={classes.MealsError}>
