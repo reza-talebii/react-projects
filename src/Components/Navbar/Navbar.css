@@ -9,6 +9,10 @@
   z-index: 10;
 }
 
+.header.bg {
+  background: rgba(0, 0, 0, 0.9);
+}
+
 .navbar {
   display: flex;
 }
