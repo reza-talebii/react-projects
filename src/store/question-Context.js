@@ -9,7 +9,7 @@ export const QuestionContext = React.createContext({
 export default (props) => {
   const [score, setScore] = useState(0);
   const [endQuiz, setEndQuiz] = useState(false);
-  
+
   const questions = [
     {
       questionText: "What is the capital of France?",
@@ -49,20 +49,12 @@ export default (props) => {
     },
   ];
 
-  const addScore = () => {
-    setScore(score + 1);
-  };
-
-  const endQuizHandler = () => setEndQuiz(true);
-
   return (
     <QuestionContext.Provider
       value={{
         questions,
-        score,
-        endQuiz,
-        addScore,
-        endQuizHandler,
+        score: { value: score, dispatch: setScore },
+        endQuiz: { value: endQuiz, dispatch: setEndQuiz },
       }}
     >
       {props.children}

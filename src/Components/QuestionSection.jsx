@@ -4,12 +4,12 @@ import { QuestionContext } from "../store/question-Context";
 
 const QuestionSection = () => {
   const questions = useContext(QuestionContext).questions;
-  const endQuizHandler = useContext(QuestionContext).endQuizHandler;
-  const setScore = useContext(QuestionContext).addScore;
+  const endQuizHandler = useContext(QuestionContext).endQuiz.dispatch;
+  const setScore = useContext(QuestionContext).score.dispatch;
   const [currentQuestion, setCurrentQuestion] = useState(0);
 
   const handleAnswerOptionClick = (isCorrect) => {
-    isCorrect && setScore();
+    isCorrect && setScore((prev) => prev + 1);
     const nextQuestion = currentQuestion + 1;
     if (nextQuestion < questions.length) {
       setCurrentQuestion(nextQuestion);

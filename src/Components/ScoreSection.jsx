@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { QuestionContext } from "../store/question-Context";
 
 const ScoreSection = () => {
-  const score = useContext(QuestionContext).score;
+  const score = useContext(QuestionContext).score.value;
   const questions = useContext(QuestionContext).questions;
 
   return (
