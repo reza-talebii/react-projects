@@ -1,11 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import QuestionProvider from "./store/question-Context";
 
 ReactDOM.render(
-  <React.StrictMode>
+  <QuestionProvider>
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </QuestionProvider>,
+  document.getElementById("root")
 );
