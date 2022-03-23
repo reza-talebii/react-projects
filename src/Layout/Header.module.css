@@ -1,0 +1,7 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("../assets/bg-desktop-dark.jpg") no-repeat center/cover;
+  height: 200px;
+}
