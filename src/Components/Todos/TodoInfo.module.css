@@ -1,0 +1,16 @@
+.todo-list-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  padding: 20px;
+  background: #fff;
+}
+
+.todo-list-info button {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+}
