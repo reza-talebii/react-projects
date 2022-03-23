@@ -1,7 +1,7 @@
 import React from "react";
 
 import classes from "./TodoHeader.module.css";
-import themICon from "../../assets/icon-sun.svg";
+import themICon from "../../assets/icon-moon.svg";
 
 const TodoHeader = () => {
   return (

@@ -3,8 +3,9 @@
   justify-content: space-between;
   align-items: center;
   font-size: 16px;
-  padding: 20px;
+  padding: 5px 15px;
   background: #fff;
+  border-top: 1px solid #e4e5f1;
 }
 
 .todo-list-info button {
@@ -13,4 +14,8 @@
   font-family: inherit;
   font-size: inherit;
   cursor: pointer;
+}
+
+.todo-list-info p {
+  color: #9394a5;
 }
