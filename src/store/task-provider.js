@@ -22,6 +22,27 @@ const TaskProvider = (props) => {
     });
   };
 
+  const complete = (id) => {
+    const taskIndex = tasks.findIndex((task) => task.id === id);
+    const mainTask = tasks;
+
+    const selectTask = mainTask[taskIndex];
+
+    const newTask = { ...selectTask, complete: !selectTask.complete };
+
+    mainTask[taskIndex] = newTask;
+    setTasks(() => {
+      saveDataInStorage(mainTask);
+      return mainTask;
+    });
+  };
+
+  const replaceTodos = (complete) => {
+    // const filterTask = tasks.filter((task) => task.complete === complete);
+    // console.log(tasks);
+    // setTasks(filterTask);
+  };
+
   const removeTask = (id) => {
     const filterTask = tasks.filter((task) => task.id !== id);
     setTasks(filterTask);
@@ -34,7 +55,16 @@ const TaskProvider = (props) => {
   };
 
   return (
-    <TaskCtx.Provider value={{ tasks, addTask, removeTask, clearAllTask }}>
+    <TaskCtx.Provider
+      value={{
+        tasks,
+        addTask,
+        removeTask,
+        clearAllTask,
+        complete,
+        replaceTodos,
+      }}
+    >
       {props.children}
     </TaskCtx.Provider>
   );

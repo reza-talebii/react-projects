@@ -5,6 +5,8 @@ const TaskCtx = React.createContext({
   addTask: (task) => {},
   removeTask: (id) => {},
   clearAllTask: () => {},
+  complete: (id) => {},
+  replaceCart: (complete) => {},
 });
 
 export default TaskCtx;
