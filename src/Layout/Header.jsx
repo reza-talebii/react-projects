@@ -8,12 +8,7 @@ const Header = () => {
   return (
     <header className={classes.header}>
       <TodoHeader />
-      <Input
-        attributes={{
-          type: "text",
-          placeholder: "Create a New Todo ...",
-        }}
-      />
+      <Input />
     </header>
   );
 };
