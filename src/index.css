@@ -13,6 +13,8 @@ html *::after {
 }
 
 body {
+  background: url("assets/bg-desktop-dark.jpg") no-repeat;
+  background-size: 100% 200px;
   font-family: "Josefin Sans", BlinkMacSystemFont, "Segoe UI", "Roboto",
     "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;

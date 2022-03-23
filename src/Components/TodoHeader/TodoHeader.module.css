@@ -1,0 +1,10 @@
+.todoHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todoHeader h1 {
+  font-weight: bold;
+  margin-right: 1rem;
+}
