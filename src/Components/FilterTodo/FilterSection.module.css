@@ -1,0 +1,23 @@
+.filter {
+  height: 50px;
+  border-radius: 8px;
+  margin-top: 20px;
+  box-shadow: 0 5px 40px 10px rgb(0 0 0 / 10%);
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.filter button {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  margin: 1rem;
+}
+
+.active {
+  color: #3a7bfd;
+}
