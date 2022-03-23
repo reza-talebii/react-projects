@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+
 * {
   box-sizing: border-box;
 }
@@ -8,16 +10,14 @@ html *::after {
   box-sizing: inherit;
   margin: 0;
   padding: 0;
-  transition: color 0.2s ease-in-out, background 0.2s ease-in-out,
-    border 0.2s ease-in-out;
 }
 
 body {
   background: url("assets/bg-desktop-dark.jpg") no-repeat;
   background-size: 100% 200px;
-  font-family: "Josefin Sans", BlinkMacSystemFont, "Segoe UI", "Roboto",
-    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: "Josefin Sans", sans-serif, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
