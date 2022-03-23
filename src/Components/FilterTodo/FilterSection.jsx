@@ -1,12 +1,13 @@
 import React from "react";
 import classes from "./FilterSection.module.css";
+import TextBtn from "../TextBtn/TextBtn";
 
 const FilterSection = () => {
   return (
     <section className={classes.filter}>
-      <button className={classes.active}>All</button>
-      <button>Active</button>
-      <button>Completed</button>
+      <TextBtn class={classes.active}>All</TextBtn>
+      <TextBtn>Active</TextBtn>
+      <TextBtn>Completed</TextBtn>
     </section>
   );
 };

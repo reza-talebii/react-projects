@@ -1,5 +1,6 @@
 import React from "react";
 import classes from "./TodoInfo.module.css";
+import TextBtn from "../TextBtn/TextBtn";
 
 const TodoInfo = () => {
   return (
@@ -7,7 +8,7 @@ const TodoInfo = () => {
       <p>
         <span>0</span> items left
       </p>
-      <button>Clear Completed</button>
+      <TextBtn>Clear Completed</TextBtn>
     </section>
   );
 };
