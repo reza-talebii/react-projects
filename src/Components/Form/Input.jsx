@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 import classes from "./Input.module.css";
 import TodoCtx from "../../store/task-context";
@@ -17,7 +18,7 @@ const Input = () => {
 
   //submit handling
   const addTaskHandler = ({ todo }) => {
-    const newTodo = { name: todo, complete: false };
+    const newTodo = { name: todo, complete: false, id: uuidv4() };
     addTask(newTodo);
   };
 

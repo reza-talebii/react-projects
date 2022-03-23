@@ -7,6 +7,7 @@ const Todo = () => {
   const tasks = useContext(TodoCtx).tasks;
   const checkTaskIsEmpty = tasks.length === 0;
 
+
   const mapTask = tasks.map((task) => (
     <li className={classes["todo-item"]}>
       <input type="checkbox" name="complete" />
@@ -16,6 +17,7 @@ const Todo = () => {
       </button>
     </li>
   ));
+  
   const massageEmptyTask = (
     <li className={classes.massage}>Tasks list is empty!</li>
   );

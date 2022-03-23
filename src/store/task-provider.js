@@ -16,9 +16,7 @@ const TaskProvider = (props) => {
   }, []);
 
   const addTask = (task) => {
-    const newTasks = tasks;
-    newTasks.push(task);
-    setTasks(newTasks);
+    setTasks((prevState) => [...prevState, task]);
     saveDataInStorage(tasks);
   };
 
