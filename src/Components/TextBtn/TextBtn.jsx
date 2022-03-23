@@ -3,7 +3,10 @@ import classes from "./TextBtn.module.css";
 
 const TextBtn = (props) => {
   return (
-    <button className={`${classes.btnText} ${props.class || ""}`}>
+    <button
+      className={`${classes.btnText} ${props.class || ""}`}
+      onClick={props.onClick}
+    >
       {props.children}
     </button>
   );

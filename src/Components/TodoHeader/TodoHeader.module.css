@@ -11,3 +11,7 @@
   font-size: 1.8rem;
   letter-spacing: 5px;
 }
+
+.todoHeader img {
+  cursor: pointer;
+}
