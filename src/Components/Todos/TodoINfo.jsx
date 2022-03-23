@@ -4,14 +4,15 @@ import TextBtn from "../TextBtn/TextBtn";
 import TodoCtx from "../../store/task-context";
 
 const TodoInfo = () => {
-  const clearAllTodos = useContext(TodoCtx).clearAllTask;
+  const todoCtx = useContext(TodoCtx);
 
-  const clearAllTodosHandler = () => clearAllTodos();
+  const clearAllTodosHandler = () => todoCtx.clearAllTask();
+  const todosNotCompleted = todoCtx.tasks.filter((todo) => !todo.complete);
 
   return (
     <section className={classes["todo-list-info"]}>
       <p>
-        <span>0</span> items left
+        <span>{todosNotCompleted.length}</span> items left
       </p>
       <TextBtn onClick={clearAllTodosHandler}>Clear Completed</TextBtn>
     </section>

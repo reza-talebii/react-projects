@@ -16,8 +16,10 @@ const TaskProvider = (props) => {
   }, []);
 
   const addTask = (task) => {
-    setTasks((prevState) => [...prevState, task]);
-    saveDataInStorage(tasks);
+    setTasks((prevState) => {
+      saveDataInStorage([...prevState, task]);
+      return [...prevState, task];
+    });
   };
 
   const removeTask = (id) => {
