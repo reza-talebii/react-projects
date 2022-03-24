@@ -59,6 +59,11 @@
     linear-gradient(to bottom, #57ddff, #c058f3);
 }
 
+.done {
+  text-decoration: line-through;
+  color: #d2d3db;
+}
+
 .todo-item button {
   opacity: 1;
   background: none;

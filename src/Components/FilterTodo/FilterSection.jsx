@@ -1,18 +1,18 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import classes from "./FilterSection.module.css";
 import TextBtn from "../TextBtn/TextBtn";
-import TodoCtx from "../../store/task-context";
+import { useDispatch, useSelector } from "react-redux";
+import { todoAction } from "../../store/reducer";
 
 const textBtnArr = ["All", "Active", "Completed"];
 
 const FilterSection = () => {
-  const todosCtx = useContext(TodoCtx);
   const [activeClass, setActiveClass] = useState("All");
+  const dispatch = useDispatch();
+  const todos = useSelector((state) => state.tasks.todos);
 
   const setClassToBtn = (btn) => {
     setActiveClass(btn);
-    // if (btn === "Active") todosCtx.replaceTodos(true);
-    // if (btn === "Completed") todosCtx.replaceTodos(false);
   };
 
   return (

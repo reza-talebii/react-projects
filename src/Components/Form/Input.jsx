@@ -1,13 +1,12 @@
 import { useForm } from "react-hook-form";
-import { useContext } from "react";
+import { todoAction } from "../../store/reducer";
 import { v4 as uuidv4 } from "uuid";
 
 import classes from "./Input.module.css";
-import TodoCtx from "../../store/task-context";
-// import useForm
+import { useDispatch } from "react-redux";
 
 const Input = () => {
-  const addTask = useContext(TodoCtx).addTask;
+  const dispatch = useDispatch();
 
   //form handling
   const {
@@ -19,7 +18,7 @@ const Input = () => {
   //submit handling
   const addTaskHandler = ({ todo }) => {
     const newTodo = { name: todo, complete: false, id: uuidv4() };
-    addTask(newTodo);
+    dispatch(todoAction.addTaskTodo(newTodo));
   };
 
   return (

@@ -2,11 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
-import TaskProvider from "./store/task-provider";
+import store from "./store/store";
+import { Provider } from "react-redux";
 
 ReactDOM.render(
-  <TaskProvider>
+  <Provider store={store}>
     <App />
-  </TaskProvider>,
+  </Provider>,
   document.getElementById("root")
 );

@@ -1,13 +1,14 @@
-import React, { useContext } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { todoAction } from "../../store/reducer";
 import classes from "./TodoInfo.module.css";
 import TextBtn from "../TextBtn/TextBtn";
-import TodoCtx from "../../store/task-context";
 
 const TodoInfo = () => {
-  const todoCtx = useContext(TodoCtx);
+  const dispatch = useDispatch();
+  const todos = useSelector((state) => state.tasks.todos);
+  const todosNotCompleted = todos.filter((todo) => !todo.complete);
 
-  const clearAllTodosHandler = () => todoCtx.clearAllTask();
-  const todosNotCompleted = todoCtx.tasks.filter((todo) => !todo.complete);
+  const clearAllTodosHandler = () => dispatch(todoAction.clearAllTodo());
 
   return (
     <section className={classes["todo-list-info"]}>
