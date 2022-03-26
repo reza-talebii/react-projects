@@ -3,7 +3,7 @@ import { todoStoreReducer } from "./reducer";
 
 const store = configureStore({
   reducer: {
-    tasks: todoStoreReducer,
+    todos: todoStoreReducer,
   },
 });
 

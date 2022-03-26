@@ -9,7 +9,7 @@ const textBtnArr = ["All", "Active", "Completed"];
 const FilterSection = () => {
   const [activeClass, setActiveClass] = useState("All");
   const dispatch = useDispatch();
-  const todos = useSelector((state) => state.tasks.todos);
+  const todos = useSelector((state) => state.todos.todos);
 
   const setClassToBtn = (btn) => {
     setActiveClass(btn);

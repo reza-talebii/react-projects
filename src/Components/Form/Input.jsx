@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { todoAction } from "../../store/reducer";
+import { addTodosAsync } from "../../store/asyncThunk";
 import { v4 as uuidv4 } from "uuid";
 
 import classes from "./Input.module.css";
@@ -18,7 +19,7 @@ const Input = () => {
   //submit handling
   const addTaskHandler = ({ todo }) => {
     const newTodo = { name: todo, complete: false, id: uuidv4() };
-    dispatch(todoAction.addTaskTodo(newTodo));
+    dispatch(addTodosAsync(newTodo));
   };
 
   return (
