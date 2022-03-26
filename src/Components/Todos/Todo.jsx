@@ -3,9 +3,7 @@ import React, { useEffect } from "react";
 import classes from "./Todo.module.css";
 import removeImage from "../../assets/icon-cross.svg";
 
-import { todoAction } from "../../store/reducer";
 import {
-  getTodosAsync,
   removeTodoAsync,
   toggleCompleteTodoAsync,
 } from "../../store/asyncThunk";
@@ -14,11 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 const Todo = () => {
   const dispatch = useDispatch();
 
-  const todos = useSelector((state) => state.todos.todos);
-
-  useEffect(() => {
-    dispatch(getTodosAsync());
-  }, [dispatch]);
+  const todos = useSelector((state) => state.todos.filterTodo);
 
   const checkTaskIsEmpty = todos.length === 0;
 

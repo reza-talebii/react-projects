@@ -10,8 +10,12 @@ const { createSlice } = require("@reduxjs/toolkit");
 
 const todoReducer = createSlice({
   name: "todos",
-  initialState: { todos: [] },
-  reducers: {},
+  initialState: { todos: [], filterTodo: [] },
+  reducers: {
+    replaceTodos: (state, action) => {
+      state.filterTodo = action.payload;
+    },
+  },
 
   extraReducers: {
     [getTodosAsync.fulfilled]: (state, action) => {

@@ -13,6 +13,20 @@ const FilterSection = () => {
 
   const setClassToBtn = (btn) => {
     setActiveClass(btn);
+
+    if (btn === "Active") {
+      const newTodo = todos.filter((todo) => todo.complete === false);
+      dispatch(todoAction.replaceTodos(newTodo));
+    }
+
+    if (btn === "Completed") {
+      const newTodo = todos.filter((todo) => todo.complete === true);
+      dispatch(todoAction.replaceTodos(newTodo));
+    }
+
+    if (btn === "All") {
+      dispatch(todoAction.replaceTodos(todos));
+    }
   };
 
   return (
