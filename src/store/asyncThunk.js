@@ -57,11 +57,7 @@ export const clearTodoAsync = createAsyncThunk(
   async ({ rejectWithValue }) => {
     try {
       const res = await fetch(`http://localhost:3004/todos`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify([]),
+        method: "DELETE",
       });
       const newTodo = await res.json();
       return { newTodo };
