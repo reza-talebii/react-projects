@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import MovieContext from "./movie-context";
 import { getMovie } from "./asyncRequest";
 
 const MovieProvider = ({ children }) => {
   const [movies, setMovies] = useState([]);
-  const [watched, setWatched] = useState([]);
-  const [watchList, setWatchList] = useState([]);
+  const [watched, setWatched] = useState(
+    JSON.parse(localStorage.getItem("watched")) || []
+  );
+  const [watchList, setWatchList] = useState(
+    JSON.parse(localStorage.getItem("watchList")) || []
+  );
 
   const searchMovie = async (searchTerm) => {
     const resultSearch = await getMovie(searchTerm);
@@ -37,6 +41,15 @@ const MovieProvider = ({ children }) => {
       addToWatchList(movie);
     }
   };
+
+  //SAVE TO LOCAL STORAGE
+  useEffect(() => {
+    localStorage.setItem("watched", JSON.stringify(watched));
+  }, [watched]);
+
+  useEffect(() => {
+    localStorage.setItem("watchList", JSON.stringify(watchList));
+  }, [watchList]);
 
   return (
     <MovieContext.Provider
