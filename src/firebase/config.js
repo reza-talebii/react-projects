@@ -1,13 +1,14 @@
 // Import the functions you need from the SDKs you need
-import * as firebase from "firebase/app";
 import { initializeApp } from "firebase/app";
-import "firebase/storage";
-import "firebase/firestore";
+import { getStorage } from "firebase/storage";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyActzkRW4qcA7XXxGWKjdeA9d8ID79xcH0",
   authDomain: "galley-91959.firebaseapp.com",
+  databaseURL: "https://galley-91959-default-rtdb.firebaseio.com",
   projectId: "galley-91959",
   storageBucket: "galley-91959.appspot.com",
   messagingSenderId: "739362551308",
@@ -16,8 +17,6 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const storage = getStorage(app);
 
-const projectStorage = firebase.storage();
-const projectFirestore = app.firestore();
-
-export { projectStorage, projectFirestore };
+export { app, storage };
