@@ -11,8 +11,8 @@ const UploadForm = () => {
   const changeHandler = (e) => {
     const selected = e.target.files[0];
 
+    //VALIDATE FILE TYPE
     if (selected && fileTypes.includes(selected.type)) {
-      console.log(selected);
       setFile(selected);
       setError(null);
     } else {
