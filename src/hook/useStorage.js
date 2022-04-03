@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 
+import { collection, addDoc } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { storage as projectStorage, db } from "../firebase/config";
 
@@ -7,8 +8,9 @@ const useStorage = (file) => {
   const [progress, setProgress] = React.useState(0);
   const [error, setError] = React.useState(null);
   const [url, setUrl] = React.useState(null);
+  const colRef = collection(db, "images");
 
-  React.useEffect(() => {
+  useEffect(() => {
     const storageRef = ref(projectStorage, file.name);
     const uploadTask = uploadBytesResumable(storageRef, file);
 
@@ -26,15 +28,20 @@ const useStorage = (file) => {
       async () => {
         //GET DOWNLOAD URL
         const getUrl = await getDownloadURL(uploadTask.snapshot.ref);
-        //SAVE URL IN LOCAL STORAGE
-        const urls = JSON.parse(localStorage.getItem("urls")) || [];
-        urls.push(getUrl);
-        localStorage.setItem("urls", urls);
+
+        await fetch(
+          "https://gallery-da082-default-rtdb.firebaseio.com/images.json",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ url: getUrl }),
+          }
+        );
 
         setUrl(getUrl);
       }
     );
-  }, [file, url]);
+  }, [file]);
 
   return { progress, url, error };
 };

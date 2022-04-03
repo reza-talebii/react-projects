@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const ImageGrid = () => {
-  return <div className={""}>ImageGrid</div>;
+  return <div className={""}>grid</div>;
 };
 
 export default ImageGrid;
