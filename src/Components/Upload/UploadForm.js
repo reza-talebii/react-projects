@@ -6,7 +6,7 @@ import ProgressBar from "../ProgressBar/ProgressBar";
 const UploadForm = () => {
   const [file, setFile] = React.useState(null);
   const [error, setError] = React.useState(null);
-  const fileTypes = ["image/jpg", "image/png"];
+  const fileTypes = ["image/jpg", "image/png", "image/jpeg", "image/webp"];
 
   const changeHandler = (e) => {
     const selected = e.target.files[0];

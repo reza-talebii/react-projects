@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-const useFirestore = (collection) => {
+const GetImages = (collection) => {
   const [images, setImages] = React.useState([]);
 
   useEffect(() => {
@@ -10,12 +10,14 @@ const useFirestore = (collection) => {
       );
       const data = await response.json();
       setImages(data);
+      // return data;
     };
 
-     getUrlImages();
+    getUrlImages();
+    // console.log(imagesUrls);
   }, [collection]);
 
   return images;
 };
 
-export default useFirestore;
+export default GetImages;

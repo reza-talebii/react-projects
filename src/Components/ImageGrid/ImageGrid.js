@@ -1,9 +1,9 @@
 import React from "react";
-import useFirestore from "../../hook/useFirestore";
+import GetImages from "../GetImages";
 import classes from "./ImagesGrid.module.css";
 
 const ImageGrid = () => {
-  const images = useFirestore("images");
+  const images = GetImages("images");
   const urls = [];
 
   const pushDataToArray = () => {

@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 
-import { collection, addDoc } from "firebase/firestore";
+// import { collection, addDoc } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
-import { storage as projectStorage, db } from "../firebase/config";
+import { storage as projectStorage } from "../firebase/config";
 
 const useStorage = (file) => {
   const [progress, setProgress] = React.useState(0);
   const [error, setError] = React.useState(null);
   const [url, setUrl] = React.useState(null);
-  const colRef = collection(db, "images");
+  // const colRef = collection(db, "images");
 
   useEffect(() => {
     const storageRef = ref(projectStorage, file.name);
