@@ -9,11 +9,10 @@ const useFirestore = (collection) => {
         `https://gallery-da082-default-rtdb.firebaseio.com/${collection}.json`
       );
       const data = await response.json();
-      return data;
+      setImages(data);
     };
 
-    const gotImages = getUrlImages();
-    setImages(gotImages);
+     getUrlImages();
   }, [collection]);
 
   return images;

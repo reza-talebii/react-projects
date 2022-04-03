@@ -34,7 +34,11 @@ const useStorage = (file) => {
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ url: getUrl }),
+            body: JSON.stringify({
+              url: getUrl,
+              name: file.name,
+              id: new Date().getTime(),
+            }),
           }
         );
 
