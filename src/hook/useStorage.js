@@ -27,7 +27,9 @@ const useStorage = (file) => {
         //GET DOWNLOAD URL
         const getUrl = await getDownloadURL(uploadTask.snapshot.ref);
         //SAVE URL IN LOCAL STORAGE
-        localStorage.setItem("url", getUrl);
+        const urls = JSON.parse(localStorage.getItem("urls")) || [];
+        urls.push(getUrl);
+        localStorage.setItem("urls", urls);
 
         setUrl(getUrl);
       }
