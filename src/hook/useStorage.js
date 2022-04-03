@@ -1,6 +1,7 @@
 import React from "react";
+
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
-import { storage as projectStorage } from "../firebase/config";
+import { storage as projectStorage, db } from "../firebase/config";
 
 const useStorage = (file) => {
   const [progress, setProgress] = React.useState(0);
@@ -15,23 +16,23 @@ const useStorage = (file) => {
       "state_changed",
       (snapshot) => {
         //SET PROGRESS
-        const prog = Math.round(
-          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-        );
+        const prog = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
         setProgress(prog);
       },
       (error) => {
         //HANDLE ERROR
         setError(error);
       },
-      () => {
+      async () => {
         //GET DOWNLOAD URL
-        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) =>
-          setUrl(downloadURL)
-        );
+        const getUrl = await getDownloadURL(uploadTask.snapshot.ref);
+        //SAVE URL IN LOCAL STORAGE
+        localStorage.setItem("url", getUrl);
+
+        setUrl(getUrl);
       }
     );
-  }, [file]);
+  }, [file, url]);
 
   return { progress, url, error };
 };
